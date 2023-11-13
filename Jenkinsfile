@@ -9,7 +9,7 @@ pipeline {
 						sh 'chmod +x ./jenkins/scripts/deploy.sh'
 						sh './jenkins/scripts/deploy.sh'
 						input message: 'Finished using the web site? (Click "Proceed" to continue)'
-						sh 'chmod +x ./jenkins/scripts/kill	.sh'
+						sh 'chmod +x ./jenkins/scripts/kill.sh'
 						sh './jenkins/scripts/kill.sh'
 					}
 				}
@@ -17,7 +17,7 @@ pipeline {
 					agent {
 						docker {
 							image 'maven:3-alpine' 
-							args '-v /root/.m2:/root/.m2' 
+							args '-v /root/.m2:/root/.m2'
 						}
 					}
 					steps {
